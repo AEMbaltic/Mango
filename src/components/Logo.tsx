@@ -1,49 +1,35 @@
 interface LogoProps {
-  /** pixel size of the mark */
+  /** pixel height of the mark */
   size?: number
-  /** show the "mango / insurance" wordmark next to the mark */
   withWordmark?: boolean
   /** light wordmark for dark backgrounds */
   dark?: boolean
   className?: string
 }
 
-/** The Mango Insurance mark: a mango fruit with a leaf, plus optional wordmark. */
+/** The Mango Insurance mark: an amber→orange checkmark. */
 export function MangoMark({ size = 34 }: { size?: number }) {
   return (
     <svg
-      width={size}
+      width={(size * 44) / 48}
       height={size}
-      viewBox="0 0 40 40"
+      viewBox="0 0 44 48"
       fill="none"
       aria-hidden="true"
-      style={{ filter: 'drop-shadow(0 6px 12px rgba(245,96,31,.35))' }}
     >
       <defs>
-        <linearGradient id="mg-body" x1="6" y1="6" x2="34" y2="36" gradientUnits="userSpaceOnUse">
-          <stop stopColor="#FF8A45" />
-          <stop offset="1" stopColor="#F5601F" />
-        </linearGradient>
-        <linearGradient id="mg-leaf" x1="24" y1="3" x2="34" y2="13" gradientUnits="userSpaceOnUse">
-          <stop stopColor="#48C088" />
-          <stop offset="1" stopColor="#2FA56B" />
+        <linearGradient id="mg-check" x1="2" y1="46" x2="42" y2="4" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#F26B1F" />
+          <stop offset="0.55" stopColor="#F5871F" />
+          <stop offset="1" stopColor="#FBB540" />
         </linearGradient>
       </defs>
-      {/* mango body */}
-      <ellipse cx="20" cy="23.5" rx="13.2" ry="14.4" transform="rotate(-13 20 23.5)" fill="url(#mg-body)" />
-      {/* soft highlight */}
-      <ellipse cx="14.5" cy="17" rx="3.6" ry="5.4" transform="rotate(-13 14.5 17)" fill="#fff" opacity="0.28" />
-      {/* leaf */}
-      <path
-        d="M25.5 5.2c4.8-2.1 8.2 0.4 6.7 5.2-4.6 1.9-8.3-0.6-6.7-5.2Z"
-        fill="url(#mg-leaf)"
-      />
-      <path
-        d="M27 8.4c1.7 0.3 3 1.2 3.9 2.6"
-        stroke="#15623F"
-        strokeWidth="0.9"
+      <polyline
+        points="4,21 18,44 40,4"
+        stroke="url(#mg-check)"
+        strokeWidth="11"
         strokeLinecap="round"
-        opacity="0.7"
+        strokeLinejoin="round"
       />
     </svg>
   )
@@ -56,15 +42,13 @@ export default function Logo({ size = 34, withWordmark = true, dark = false, cla
       {withWordmark && (
         <span className="flex flex-col leading-none">
           <span
-            className={`text-[19px] font-extrabold tracking-[-0.02em] ${dark ? 'text-white' : 'text-ink'}`}
+            className={`font-display text-[22px] font-extrabold leading-[0.95] tracking-[-0.03em] ${
+              dark ? 'text-white' : 'text-ink'
+            }`}
           >
             mango
           </span>
-          <span
-            className={`text-[9px] font-semibold uppercase tracking-[0.16em] ${
-              dark ? 'text-sand-400/80' : 'text-ink-300'
-            }`}
-          >
+          <span className="font-display text-[9px] font-semibold uppercase leading-none tracking-[0.34em] text-mango-500">
             insurance
           </span>
         </span>

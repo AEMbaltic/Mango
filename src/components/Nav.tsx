@@ -19,30 +19,31 @@ export default function Nav({ onGetPrice }: { onGetPrice: () => void }) {
   const [menuOpen, setMenuOpen] = useState(false)
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12)
+    const onScroll = () => setScrolled(window.scrollY > 24)
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  // Over the dark hero video (top, not scrolled) we use light text; once the
+  // page scrolls under a solid light bar we switch to dark text.
+  const solid = scrolled || menuOpen
+  const linkClass = solid ? 'text-ink-600 hover:text-ink' : 'text-white/85 hover:text-white'
+
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-        scrolled ? 'border-b border-line/70 bg-sand-100/85 backdrop-blur-xl' : 'border-b border-transparent'
+        solid ? 'border-b border-line/70 bg-sand-100/90 backdrop-blur-xl' : 'border-b border-transparent'
       }`}
     >
       <nav className="container-pad flex h-16 items-center justify-between sm:h-[72px]">
         <a href="#top" className="focus-ring rounded-xl" aria-label="Mango Insurance home">
-          <Logo size={34} />
+          <Logo size={34} dark={!solid} />
         </a>
 
         <div className="hidden items-center gap-7 lg:flex">
           {LINKS.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              className="focus-ring rounded-md text-sm font-semibold text-ink-600 transition-colors hover:text-ink"
-            >
+            <a key={l.href} href={l.href} className={`focus-ring rounded-md text-sm font-semibold transition-colors ${linkClass}`}>
               {l.label}
             </a>
           ))}
@@ -50,25 +51,26 @@ export default function Nav({ onGetPrice }: { onGetPrice: () => void }) {
             href={BRAND.b2bUrl}
             target="_blank"
             rel="noreferrer"
-            className="focus-ring rounded-md text-sm font-semibold text-ink-400 transition-colors hover:text-ink"
+            className={`focus-ring rounded-md text-sm font-semibold transition-colors ${
+              solid ? 'text-ink-400 hover:text-ink' : 'text-white/65 hover:text-white'
+            }`}
           >
             For dealers ↗
           </a>
         </div>
 
         <div className="flex items-center gap-2.5">
-          <LangSwitcher />
-
+          <LangSwitcher dark={!solid} />
           <div className="hidden sm:block">
             <Button size="sm" onClick={onGetPrice}>
               Get my price
             </Button>
           </div>
-
-          {/* mobile menu toggle */}
           <button
             onClick={() => setMenuOpen((o) => !o)}
-            className="focus-ring rounded-xl border border-line bg-sand-100 p-2 lg:hidden"
+            className={`focus-ring rounded-xl border p-2 lg:hidden ${
+              solid ? 'border-line bg-sand-100 text-ink' : 'border-white/25 bg-white/10 text-white'
+            }`}
             aria-label="Menu"
           >
             {menuOpen ? <X size={20} /> : <Menu size={20} />}
@@ -76,7 +78,6 @@ export default function Nav({ onGetPrice }: { onGetPrice: () => void }) {
         </div>
       </nav>
 
-      {/* mobile menu */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div

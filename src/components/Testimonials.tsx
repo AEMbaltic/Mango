@@ -26,22 +26,34 @@ const REVIEWS = [
   },
 ]
 
-const PARTNERS = ['Fortegra', 'Stripe', 'Paysera', 'SEB', 'Swedbank']
-
 export default function Testimonials() {
   return (
     <section id="reviews" className="container-pad scroll-mt-24 py-20 sm:py-28">
       <SectionHeading
+        center
         eyebrow="Loved by drivers"
         title={
           <>
-            Rated <span className="text-gradient-mango">4.8 / 5</span> by drivers across the Baltics
+            Rated <span className="text-gradient-mango">4.8 / 5</span> across the Baltics
           </>
         }
         subtitle="Thousands of cars covered, thousands of claims paid. Here's what it feels like when it matters."
       />
 
-      <div className="mt-14 grid gap-6 md:grid-cols-3">
+      {/* trustpilot-style strip */}
+      <Reveal className="mx-auto mt-8 flex max-w-md items-center justify-center gap-3 rounded-2xl border border-line bg-white px-5 py-3 shadow-card">
+        <div className="flex items-center gap-0.5">
+          {Array.from({ length: 5 }).map((_, i) => (
+            <span key={i} className="flex h-6 w-6 items-center justify-center rounded-[3px] bg-leaf-500">
+              <Star size={15} className="fill-white text-white" />
+            </span>
+          ))}
+        </div>
+        <span className="text-[14px] font-bold text-ink">Excellent</span>
+        <span className="text-[13px] text-ink-400">2,100+ reviews</span>
+      </Reveal>
+
+      <div className="mt-12 grid gap-6 md:grid-cols-3">
         {REVIEWS.map((r, i) => (
           <Reveal key={r.name} delay={i * 0.1}>
             <figure className="flex h-full flex-col rounded-4xl border border-line bg-white p-7 shadow-card">
@@ -50,11 +62,9 @@ export default function Testimonials() {
                   <Star key={s} size={17} className="fill-mango-500 text-mango-500" />
                 ))}
               </div>
-              <blockquote className="mt-4 flex-1 text-[15px] leading-relaxed text-ink-700">
-                “{r.quote}”
-              </blockquote>
+              <blockquote className="mt-4 flex-1 text-[15px] leading-relaxed text-ink-700">“{r.quote}”</blockquote>
               <figcaption className="mt-6 flex items-center gap-3 border-t border-line/70 pt-5">
-                <div className="flex h-11 w-11 items-center justify-center rounded-full bg-sand-300 font-bold text-ink-600">
+                <div className="flex h-11 w-11 items-center justify-center rounded-full bg-sand-300 font-display font-bold text-ink-600">
                   {r.name.charAt(0)}
                 </div>
                 <div className="leading-tight">
@@ -68,22 +78,6 @@ export default function Testimonials() {
           </Reveal>
         ))}
       </div>
-
-      {/* partners strip */}
-      <Reveal className="mt-14">
-        <div className="flex flex-col items-center gap-4">
-          <span className="text-[12px] font-semibold uppercase tracking-wider text-ink-400">
-            Underwriting &amp; payments handled by
-          </span>
-          <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
-            {PARTNERS.map((p) => (
-              <span key={p} className="text-lg font-extrabold tracking-tight text-ink-300">
-                {p}
-              </span>
-            ))}
-          </div>
-        </div>
-      </Reveal>
     </section>
   )
 }

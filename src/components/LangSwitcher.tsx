@@ -8,7 +8,13 @@ import { LANGS } from '../lib/brand'
  * updates the active locale label. Copy is centralised so real LT/LV/ET
  * translations can be dropped in later without touching components.
  */
-export default function LangSwitcher({ align = 'right' }: { align?: 'left' | 'right' }) {
+export default function LangSwitcher({
+  align = 'right',
+  dark = false,
+}: {
+  align?: 'left' | 'right'
+  dark?: boolean
+}) {
   const [open, setOpen] = useState(false)
   const [lang, setLang] = useState('EN')
 
@@ -16,7 +22,11 @@ export default function LangSwitcher({ align = 'right' }: { align?: 'left' | 'ri
     <div className="relative">
       <button
         onClick={() => setOpen((o) => !o)}
-        className="focus-ring flex items-center gap-1.5 rounded-full border border-line bg-sand-100 px-3 py-2 text-xs font-bold text-ink hover:border-line-mid"
+        className={`focus-ring flex items-center gap-1.5 rounded-full border px-3 py-2 text-xs font-bold transition-colors ${
+          dark
+            ? 'border-white/25 bg-white/10 text-white hover:bg-white/15'
+            : 'border-line bg-sand-100 text-ink hover:border-line-mid'
+        }`}
         aria-haspopup="listbox"
         aria-expanded={open}
       >

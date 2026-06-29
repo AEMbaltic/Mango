@@ -39,7 +39,7 @@ export default function PlansPreview({ onGetPrice }: { onGetPrice: (plate?: stri
                   </span>
                 )}
                 <div className="flex items-baseline justify-between">
-                  <h3 className="text-2xl font-extrabold text-ink">{plan.name}</h3>
+                  <h3 className="font-display text-2xl font-extrabold text-ink">{plan.name}</h3>
                   <span className="text-[12px] font-semibold text-ink-400">{plan.tag}</span>
                 </div>
                 <p className="mt-2 min-h-[42px] text-[14px] leading-relaxed text-ink-500">{plan.blurb}</p>

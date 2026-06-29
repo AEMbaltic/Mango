@@ -4,18 +4,18 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Mango Insurance brand palette
+        // Mango Insurance brand palette — tuned to the real amber→orange logo.
         mango: {
-          50: '#FFF4ED',
-          100: '#FDEEE5',
-          200: '#FBD9C4',
-          300: '#F9BC97',
-          400: '#FF7A2E', // light mango
-          500: '#F5601F', // primary brand orange
-          600: '#E14E12',
-          700: '#C24E12', // deep mango (text on light)
-          800: '#9A3D11',
-          900: '#7C3411',
+          50: '#FFF6EC',
+          100: '#FDECD6',
+          200: '#FBD7A8',
+          300: '#FBC069',
+          400: '#FBB040', // gold (top of the logo gradient)
+          500: '#F5821F', // primary brand orange (the "INSURANCE" orange)
+          600: '#E06A12',
+          700: '#C25612', // deep orange (text on light)
+          800: '#9A4511',
+          900: '#7C3811',
         },
         leaf: {
           50: '#E6F4EC',
@@ -23,22 +23,31 @@ export default {
           200: '#A7D8BC',
           300: '#6FC096',
           400: '#42B07C',
-          500: '#2FA56B', // brand leaf green
+          500: '#2FA56B', // success / trust green
           600: '#1E9E6A',
           700: '#197F55',
           800: '#155F41',
           900: '#114B34',
         },
+        // Fortegra navy — used for the underwriter logo + deep accents.
+        navy: {
+          50: '#EAF0F6',
+          100: '#CDDBEA',
+          500: '#1C4470',
+          700: '#16385C',
+          900: '#0F2742',
+        },
+        // Cool charcoal, matching the Mango wordmark.
         ink: {
-          DEFAULT: '#1A1410',
-          900: '#0E0B08',
-          800: '#1A1410',
-          700: '#332720',
-          600: '#5C5347',
-          500: '#7A6F62',
-          400: '#9C8F7D',
-          300: '#A89B89',
-          200: '#B6AC9D',
+          DEFAULT: '#23232B',
+          900: '#15151B',
+          800: '#23232B',
+          700: '#3A3A45',
+          600: '#52525E',
+          500: '#73737F',
+          400: '#9A9AA5',
+          300: '#B4B4BD',
+          200: '#C9C9D1',
         },
         sand: {
           50: '#FFFFFF',
@@ -57,6 +66,7 @@ export default {
       },
       fontFamily: {
         sans: ['"Schibsted Grotesk"', 'system-ui', 'sans-serif'],
+        display: ['Poppins', '"Schibsted Grotesk"', 'system-ui', 'sans-serif'],
         mono: ['"IBM Plex Mono"', 'ui-monospace', 'monospace'],
       },
       borderRadius: {

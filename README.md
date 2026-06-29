@@ -13,13 +13,19 @@ wizard:
 
 ## Highlights
 
-- **On-brand** — Mango's mango-orange / leaf-green / warm-sand palette, the
-  mango-with-leaf logo (crisp SVG), Schibsted Grotesk + IBM Plex Mono.
-- **Animated, lightweight hero** — CSS/SVG gradient mesh with floating "mango"
-  orbs and a live floating quote card. No heavy video; fully GPU-friendly.
-- **Conversion-oriented UX** — instant plate-to-price entry in the hero, trust
-  signals (Fortegra, AM Best A−), animated stats, social proof, transparent
-  comparison, FAQ, sticky live pricing and a focused checkout.
+- **On-brand** — Mango's amber→orange palette and the real logo (gradient
+  checkmark + "mango / INSURANCE" wordmark), the **Fortegra** underwriter logo
+  (navy peaks), navy accents and warm sand. Poppins (display) + Schibsted
+  Grotesk (body) + IBM Plex Mono (numerics), all crisp SVG.
+- **Cinematic hero** — full-bleed **background video** with **scroll-driven**
+  parallax/zoom and a darkening scrim; degrades to a poster image / branded
+  gradient under reduced-motion or if the media is unavailable.
+- **Photo-led, editorial layouts** — bespoke automotive photography across the
+  hero, coverage, products and how-it-works; asymmetric sections rather than
+  uniform centered card grids.
+- **Conversion-oriented UX** — instant plate-to-price entry, Trustpilot-style
+  rating, trust signals (Fortegra, AM Best A−), animated stats, social proof,
+  transparent comparison, FAQ, sticky live pricing and a focused checkout.
 - **Accessible & responsive** — semantic markup, keyboard-friendly controls,
   visible focus rings, and a global `prefers-reduced-motion` override.
 - **Real product facts** — coverage tiers and eligibility (first reg. up to
@@ -49,10 +55,11 @@ npm run preview   # serve the production build (http://localhost:4173)
 src/
   App.tsx                 # page composition + wizard open/close state
   components/             # landing sections (Nav, Hero, Products, Coverage, …)
-    ui/                   # Button, Reveal, SectionHeading
-    Logo.tsx              # SVG mango mark + wordmark
+    ui/                   # Button, Reveal, SectionHeading, Photo, Rating
+    Logo.tsx              # SVG Mango mark (checkmark) + wordmark
+    FortegraLogo.tsx      # SVG Fortegra lockup (peaks + wordmark)
+    HeroVideo.tsx         # scroll-driven background video + fallbacks
     PlateInput.tsx        # reusable licence-plate field
-    AnimatedBackground.tsx# hero gradient-mesh backdrop
   wizard/
     QuoteWizard.tsx       # checkout overlay + context-aware footer
     useQuote.ts           # quote state machine
@@ -60,6 +67,7 @@ src/
     steps/                # one component per step (plate → done)
   lib/
     brand.ts              # brand facts, stats, eligibility, languages
+    media.ts              # generated photo/video URLs (CDN) + fallbacks
     pricing.ts            # plans, coverage matrix, price calculation
     vehicle.ts            # mock plate → vehicle lookup
     hooks.ts              # count-up + scroll-lock helpers
@@ -75,3 +83,8 @@ production you'd wire up:
 - **i18n** — the language switcher and centralised copy are in place; LT/LV/ET
   translations can be dropped in (currently English ships, switcher sets the
   active locale label).
+- **self-hosted media** — the hero video and photos in `lib/media.ts` are
+  AI-generated (Higgsfield) and currently referenced from Higgsfield's CDN.
+  For production, download them into `public/videos` + `public/images` and point
+  the constants at the local paths. Swap in official brand photography / the
+  official Mango + Fortegra logo assets when available.

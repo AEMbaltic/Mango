@@ -1,13 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 48">
   <defs>
-    <linearGradient id="b" x1="6" y1="6" x2="34" y2="36" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#FF8A45"/><stop offset="1" stop-color="#F5601F"/>
-    </linearGradient>
-    <linearGradient id="l" x1="24" y1="3" x2="34" y2="13" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#48C088"/><stop offset="1" stop-color="#2FA56B"/>
+    <linearGradient id="c" x1="2" y1="46" x2="42" y2="4" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F26B1F"/><stop offset="0.55" stop-color="#F5871F"/><stop offset="1" stop-color="#FBB540"/>
     </linearGradient>
   </defs>
-  <ellipse cx="20" cy="23.5" rx="13.2" ry="14.4" transform="rotate(-13 20 23.5)" fill="url(#b)"/>
-  <ellipse cx="14.5" cy="17" rx="3.6" ry="5.4" transform="rotate(-13 14.5 17)" fill="#fff" opacity=".28"/>
-  <path d="M25.5 5.2c4.8-2.1 8.2 0.4 6.7 5.2-4.6 1.9-8.3-0.6-6.7-5.2Z" fill="url(#l)"/>
+  <polyline points="4,21 18,44 40,4" fill="none" stroke="url(#c)" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>

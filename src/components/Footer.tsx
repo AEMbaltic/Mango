@@ -1,4 +1,5 @@
 import Logo from './Logo'
+import FortegraLogo from './FortegraLogo'
 import { BRAND } from '../lib/brand'
 
 const COLS = [
@@ -43,6 +44,12 @@ export default function Footer() {
               Extended car warranty, GAP and MOT cover you can buy online in minutes — built for
               drivers across the Baltics.
             </p>
+            <div className="mt-5 flex items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3">
+              <span className="text-[12px] font-semibold uppercase tracking-wide text-sand-400/60">
+                Underwritten by
+              </span>
+              <FortegraLogo light variant="wordmark" height={16} />
+            </div>
             <div className="mt-5 space-y-1 text-[13px]">
               <a href={`mailto:${BRAND.email}`} className="block transition-colors hover:text-white">
                 {BRAND.email}
