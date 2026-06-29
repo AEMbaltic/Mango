@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-sand-300 text-ink font-sans antialiased;
+    margin: 0;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: theme('colors.mango.500');
+    color: #fff;
+  }
+
+  /* Respect users who prefer less motion. */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
+}
+
+@layer components {
+  /* Hide scrollbar inside the phone mock / scroll regions */
+  .no-scrollbar::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+
+  /* Container helper */
+  .container-pad {
+    @apply mx-auto w-full max-w-content px-5 sm:px-8;
+  }
+
+  /* Accessible focus ring tuned to the brand */
+  .focus-ring {
+    @apply outline-none focus-visible:ring-4 focus-visible:ring-mango-500/30 focus-visible:ring-offset-0;
+  }
+
+  /* Gradient text helper */
+  .text-gradient-mango {
+    @apply bg-gradient-to-br from-mango-400 to-mango-600 bg-clip-text text-transparent;
+  }
+}
