@@ -17,9 +17,10 @@ wizard:
   checkmark + "mango / INSURANCE" wordmark), the **Fortegra** underwriter logo
   (navy peaks), navy accents and warm sand. Poppins (display) + Schibsted
   Grotesk (body) + IBM Plex Mono (numerics), all crisp SVG.
-- **Cinematic hero** — full-bleed **background video** with **scroll-driven**
-  parallax/zoom and a darkening scrim; degrades to a poster image / branded
-  gradient under reduced-motion or if the media is unavailable.
+- **Cinematic hero** — a **scroll-scrubbed** aerial night-city frame sequence
+  (121 WebP frames drawn to a `<canvas>`) that the viewer scrubs by scrolling,
+  with content that fades into the footage. Self-hosted in `public/scrub`;
+  desktop preloads + scrubs, mobile / reduced-motion shows a single static frame.
 - **Photo-led, editorial layouts** — bespoke automotive photography across the
   hero, coverage, products and how-it-works; asymmetric sections rather than
   uniform centered card grids.
@@ -58,7 +59,7 @@ src/
     ui/                   # Button, Reveal, SectionHeading, Photo, Rating
     Logo.tsx              # SVG Mango mark (checkmark) + wordmark
     FortegraLogo.tsx      # SVG Fortegra lockup (peaks + wordmark)
-    HeroVideo.tsx         # scroll-driven background video + fallbacks
+    ScrollScrub.tsx       # canvas scroll-scrub frame-sequence background
     PlateInput.tsx        # reusable licence-plate field
   wizard/
     QuoteWizard.tsx       # checkout overlay + context-aware footer
@@ -83,8 +84,9 @@ production you'd wire up:
 - **i18n** — the language switcher and centralised copy are in place; LT/LV/ET
   translations can be dropped in (currently English ships, switcher sets the
   active locale label).
-- **self-hosted media** — the hero video and photos in `lib/media.ts` are
-  AI-generated (Higgsfield) and currently referenced from Higgsfield's CDN.
-  For production, download them into `public/videos` + `public/images` and point
-  the constants at the local paths. Swap in official brand photography / the
-  official Mango + Fortegra logo assets when available.
+- **media** — the section **photos** in `lib/media.ts` are AI-generated
+  (Higgsfield) and referenced from its CDN; download + self-host under
+  `public/images` for production. The hero **scroll-scrub frames** are already
+  self-hosted in `public/scrub` (121 WebP, ~24 MB — consider a downscaled set
+  for mobile). Swap in official brand photography / the official Mango +
+  Fortegra logo assets when available.

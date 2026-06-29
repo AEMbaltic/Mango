@@ -25,7 +25,7 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen overflow-x-hidden">
+    <div className="min-h-screen overflow-x-clip">
       <Nav onGetPrice={() => openWizard()} />
 
       <main>

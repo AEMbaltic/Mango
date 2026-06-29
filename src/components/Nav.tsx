@@ -19,7 +19,12 @@ export default function Nav({ onGetPrice }: { onGetPrice: () => void }) {
   const [menuOpen, setMenuOpen] = useState(false)
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24)
+    // Stay transparent while the (possibly tall, pinned) hero is in view; turn
+    // solid once the hero has scrolled past the bar.
+    const onScroll = () => {
+      const hero = document.getElementById('top')
+      setScrolled(hero ? hero.getBoundingClientRect().bottom <= 80 : window.scrollY > 24)
+    }
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)

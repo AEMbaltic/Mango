@@ -1,0 +1,11 @@
+{
+  "frameCount": 121,
+  "pattern": "frame_%04d.webp",
+  "firstIndex": 1,
+  "lastIndex": 121,
+  "width": 2208,
+  "height": 936,
+  "fps_source": 24,
+  "fps_extracted": 12,
+  "format": "webp"
+}
