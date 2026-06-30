@@ -78,18 +78,19 @@ export default function Hero({ onGetPrice }: { onGetPrice: (plate?: string) => v
         variants={fade}
         initial="hidden"
         animate="show"
-        className="font-display text-balance text-[2.6rem] font-extrabold leading-[1.02] tracking-[-0.025em] sm:text-[4.1rem]"
+        className="font-display text-balance text-[2.7rem] font-extrabold leading-[1.02] tracking-[-0.025em] sm:text-[4.3rem]"
       >
-        Keep your car covered the day the{' '}
+        Keep driving.
+        <br />
+        We&apos;ll handle the{' '}
         <span className="bg-gradient-to-r from-mango-400 to-mango-500 bg-clip-text text-transparent">
-          factory warranty
-        </span>{' '}
-        ends.
+          what-ifs
+        </span>
+        .
       </motion.h1>
 
       <motion.p custom={3} variants={fade} initial="hidden" animate="show" className="mt-5 max-w-lg text-[17px] leading-relaxed text-white/80">
-        Enter your licence plate — we&apos;ll find your car and show your exact price in seconds. No
-        call, no paperwork. Buy online in under 5 minutes.
+        Extended car warranty for cars with or without factory warranty — simple, fast and online.
       </motion.p>
 
       <motion.div

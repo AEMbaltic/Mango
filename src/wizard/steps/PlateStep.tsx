@@ -14,8 +14,8 @@ export default function PlateStep({ q }: { q: QuoteApi }) {
           Your manufacturer warranty is expiring soon?
         </span>
       </div>
-      <h2 className="text-[27px] font-extrabold leading-[1.08] tracking-[-0.02em] text-ink text-balance">
-        Keep your car covered the day the factory warranty ends.
+      <h2 className="font-display text-[26px] font-extrabold leading-[1.08] tracking-[-0.02em] text-ink text-balance">
+        Keep driving. We&apos;ll handle the <span className="text-mango-600">what-ifs</span>.
       </h2>
       <p className="mt-2.5 text-[14.5px] leading-relaxed text-ink-500">
         Enter your licence plate — we&apos;ll find your car and show your exact price instantly. No
