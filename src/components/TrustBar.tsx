@@ -36,11 +36,10 @@ export default function TrustBar() {
     <section className="border-b border-line bg-white">
       <div className="container-pad py-7">
         <Reveal className="flex flex-col items-center justify-between gap-5 border-b border-line/70 pb-6 lg:flex-row">
-          <div className="flex items-center gap-3 text-[14px] text-ink-500">
-            <span className="font-semibold text-ink">Underwritten by</span>
-            <FortegraLogo height={30} />
-            <span className="hidden text-ink-300 sm:inline">·</span>
-            <span className="hidden font-semibold text-navy-700 sm:inline">AM Best A− (Excellent)</span>
+          <div className="flex flex-wrap items-center justify-center gap-x-2.5 gap-y-1 text-center text-[14px] text-ink-500 lg:justify-start lg:text-left">
+            <span className="font-semibold text-ink">Insured by</span>
+            <FortegraLogo height={28} />
+            <span>— a financially strong insurer, independently rated&nbsp;A− (Excellent)</span>
           </div>
           <Rating />
         </Reveal>

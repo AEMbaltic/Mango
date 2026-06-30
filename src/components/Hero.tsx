@@ -53,9 +53,9 @@ export default function Hero({ onGetPrice }: { onGetPrice: (plate?: string) => v
         <Rating tone="light" showCount={false} />
         <span className="hidden h-4 w-px bg-white/25 sm:block" />
         <span className="flex items-center gap-2 text-[13px] text-white/75">
-          Underwritten by
+          Insured by
           <FortegraLogo light variant="wordmark" height={15} />
-          <span className="hidden sm:inline">· {BRAND.rating}</span>
+          <span className="hidden sm:inline">· a top-rated insurer</span>
         </span>
       </motion.div>
 

@@ -46,7 +46,7 @@ export default function Footer() {
             </p>
             <div className="mt-5 flex items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3">
               <span className="text-[12px] font-semibold uppercase tracking-wide text-sand-400/60">
-                Underwritten by
+                Insured by
               </span>
               <FortegraLogo light variant="wordmark" height={16} />
             </div>

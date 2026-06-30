@@ -24,7 +24,7 @@ const FAQS = [
   },
   {
     q: 'Who actually insures the policy?',
-    a: `Your policy is underwritten by ${BRAND.underwriter}, rated ${BRAND.rating} by AM Best — a strong, regulated insurer. Mango Insurance arranges and services the cover and handles your claims.`,
+    a: `Your policy is insured by ${BRAND.underwriter} — the company that actually pays your claims. They're independently rated ${BRAND.rating} for financial strength by AM Best (a global agency that grades how financially solid insurers are), so you can be confident a strong company stands behind your cover. Mango Insurance arranges and services the policy and handles your claims for you.`,
   },
   {
     q: 'Which countries do you cover?',

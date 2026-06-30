@@ -49,11 +49,9 @@ export default function PlateStep({ q }: { q: QuoteApi }) {
           <ShieldCheck size={18} />
         </div>
         <div className="leading-snug">
-          <div className="text-[12.5px] font-bold text-ink">
-            Backed by {BRAND.underwriter.split(' ')[0]} · {BRAND.rating}
-          </div>
+          <div className="text-[12.5px] font-bold text-ink">Insured by Fortegra — a top-rated insurer</div>
           <div className="text-[11.5px] text-leaf-700/80">
-            Regulated insurer. {BRAND.dealerPartners} dealer partners across the Baltics.
+            Financially strong (rated A− by AM Best). {BRAND.dealerPartners} dealer partners across the Baltics.
           </div>
         </div>
       </div>
