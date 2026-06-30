@@ -98,7 +98,7 @@ export default function Hero({ onGetPrice }: { onGetPrice: (plate?: string) => v
         variants={fade}
         initial="hidden"
         animate="show"
-        className="mt-8 max-w-xl rounded-3xl border border-white/15 bg-white/95 p-3.5 shadow-lift backdrop-blur sm:p-4"
+        className="mt-7 max-w-lg rounded-3xl border border-white/15 bg-white/95 p-3.5 shadow-lift backdrop-blur sm:p-4"
       >
         <PlateInput id="plate-hero" value={plate} onChange={setPlate} onSubmit={() => onGetPrice(plate)} />
         <div className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-1.5 px-1 text-[13px] text-ink-400">
@@ -137,7 +137,7 @@ export default function Hero({ onGetPrice }: { onGetPrice: (plate?: string) => v
           </div>
           {scrims}
           <motion.div style={{ opacity: contentOpacity, y: contentY }} className="relative z-10 h-full">
-            <div className="container-pad flex h-full items-center pb-16 pt-28">{content}</div>
+            <div className="container-pad flex h-full items-start pt-24 sm:pt-28">{content}</div>
           </motion.div>
         </div>
       </section>
