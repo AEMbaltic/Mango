@@ -18,14 +18,22 @@ const fade = {
 
 export default function Hero({ onGetPrice }: { onGetPrice: (plate?: string) => void }) {
   const [plate, setPlate] = useState('')
-  const [scrub, setScrub] = useState(false)
   const ref = useRef<HTMLElement>(null)
 
-  // Enable the heavy scroll-scrub only on wide screens without reduced-motion.
+  // Scrub everywhere except when the user prefers reduced motion; pick the
+  // resolution-appropriate frame set (desktop 1600px / mobile 960px). Lazy
+  // initial state avoids a layout flash on mount.
+  const mq = (q: string) => typeof window !== 'undefined' && window.matchMedia(q).matches
+  const [scrub, setScrub] = useState(() => !mq('(prefers-reduced-motion: reduce)'))
+  const [baseUrl, setBaseUrl] = useState(() => (mq('(min-width: 1024px)') ? '/scrub/desktop' : '/scrub/mobile'))
+
   useEffect(() => {
     const wide = window.matchMedia('(min-width: 1024px)')
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)')
-    const update = () => setScrub(wide.matches && !reduce.matches)
+    const update = () => {
+      setScrub(!reduce.matches)
+      setBaseUrl(wide.matches ? '/scrub/desktop' : '/scrub/mobile')
+    }
     update()
     wide.addEventListener('change', update)
     reduce.addEventListener('change', update)
@@ -40,7 +48,7 @@ export default function Hero({ onGetPrice }: { onGetPrice: (plate?: string) => v
   const contentY = useTransform(scrollYProgress, [0, 0.78], [0, -60])
 
   const content = (
-    <div className="max-w-2xl text-white">
+    <div className="w-full min-w-0 max-w-2xl text-white">
       <motion.div custom={0} variants={fade} initial="hidden" animate="show" className="mb-6 flex flex-wrap items-center gap-x-5 gap-y-3">
         <Rating tone="light" showCount={false} />
         <span className="hidden h-4 w-px bg-white/25 sm:block" />
@@ -124,7 +132,7 @@ export default function Hero({ onGetPrice }: { onGetPrice: (plate?: string) => v
       <section ref={ref} id="top" className="relative h-[210vh]">
         <div className="sticky top-0 h-screen overflow-hidden bg-ink-900">
           <div className="absolute inset-0">
-            <ScrollScrub sectionRef={ref} enabled />
+            <ScrollScrub sectionRef={ref} enabled baseUrl={baseUrl} />
           </div>
           {scrims}
           <motion.div style={{ opacity: contentOpacity, y: contentY }} className="relative z-10 h-full">
@@ -138,7 +146,7 @@ export default function Hero({ onGetPrice }: { onGetPrice: (plate?: string) => v
   return (
     <section ref={ref} id="top" className="relative flex min-h-[92vh] items-center overflow-hidden bg-ink-900">
       <div className="absolute inset-0">
-        <ScrollScrub sectionRef={ref} enabled={false} />
+        <ScrollScrub sectionRef={ref} enabled={false} baseUrl={baseUrl} />
       </div>
       {scrims}
       <div className="container-pad relative z-10 w-full pb-16 pt-28 sm:pt-32">{content}</div>

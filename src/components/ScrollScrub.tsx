@@ -22,7 +22,7 @@ export default function ScrollScrub({
   sectionRef,
   enabled,
   frameCount = 121,
-  baseUrl = '/scrub',
+  baseUrl = '/scrub/desktop',
   staticIndex = 70,
   className = '',
 }: ScrollScrubProps) {

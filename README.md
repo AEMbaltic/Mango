@@ -17,10 +17,11 @@ wizard:
   checkmark + "mango / INSURANCE" wordmark), the **Fortegra** underwriter logo
   (navy peaks), navy accents and warm sand. Poppins (display) + Schibsted
   Grotesk (body) + IBM Plex Mono (numerics), all crisp SVG.
-- **Cinematic hero** — a **scroll-scrubbed** aerial night-city frame sequence
+- **Cinematic hero** — a **scroll-scrubbed** aerial alpine frame sequence
   (121 WebP frames drawn to a `<canvas>`) that the viewer scrubs by scrolling,
-  with content that fades into the footage. Self-hosted in `public/scrub`;
-  desktop preloads + scrubs, mobile / reduced-motion shows a single static frame.
+  with content that fades into the footage. Self-hosted in `public/scrub`
+  (`desktop/` 1600px + `mobile/` 960px sets, chosen by screen width); both
+  scrub, and `prefers-reduced-motion` falls back to a single static frame.
 - **Photo-led, editorial layouts** — bespoke automotive photography across the
   hero, coverage, products and how-it-works; asymmetric sections rather than
   uniform centered card grids.
@@ -86,7 +87,7 @@ production you'd wire up:
   active locale label).
 - **media** — the section **photos** in `lib/media.ts` are AI-generated
   (Higgsfield) and referenced from its CDN; download + self-host under
-  `public/images` for production. The hero **scroll-scrub frames** are already
-  self-hosted in `public/scrub` (121 WebP, ~24 MB — consider a downscaled set
-  for mobile). Swap in official brand photography / the official Mango +
+  `public/images` for production. The hero **scroll-scrub frames** are
+  self-hosted in `public/scrub/{desktop,mobile}` (121 WebP each, ~36 MB total).
+  Swap in official brand photography / the official Mango +
   Fortegra logo assets when available.
