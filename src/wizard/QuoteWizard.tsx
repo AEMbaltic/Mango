@@ -190,14 +190,14 @@ export default function QuoteWizard({
             onClick={(e) => e.stopPropagation()}
             className="relative flex h-full w-full max-w-[460px] flex-col overflow-hidden bg-sand-100 shadow-phone sm:h-auto sm:max-h-[92vh] sm:rounded-4xl"
           >
-            {/* header */}
-            <div className="flex shrink-0 items-center justify-between border-b border-line bg-white px-5 py-3.5">
-              <Logo size={30} />
+            {/* header (dark bar so the white logo reads) */}
+            <div className="flex shrink-0 items-center justify-between border-b border-white/10 bg-ink-900 px-5 py-3.5">
+              <Logo size={28} />
               <div className="flex items-center gap-2">
-                <LangSwitcher />
+                <LangSwitcher dark />
                 <button
                   onClick={onClose}
-                  className="focus-ring rounded-full p-2 text-ink-500 hover:bg-sand-200"
+                  className="focus-ring rounded-full p-2 text-white/70 hover:bg-white/10"
                   aria-label="Close"
                 >
                   <X size={20} />

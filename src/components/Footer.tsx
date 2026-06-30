@@ -39,7 +39,7 @@ export default function Footer() {
       <div className="container-pad py-16">
         <div className="grid gap-10 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div className="max-w-xs">
-            <Logo size={34} dark />
+            <Logo size={34} />
             <p className="mt-4 text-[14px] leading-relaxed text-sand-400/70">
               Extended car warranty, GAP and MOT cover you can buy online in minutes — built for
               drivers across the Baltics.
