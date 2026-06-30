@@ -12,14 +12,21 @@ export function MangoMark({ size = 34 }: { size?: number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 100 100" fill="none" aria-hidden="true">
       <defs>
-        <linearGradient id="mg-check" x1="6" y1="90" x2="92" y2="12" gradientUnits="userSpaceOnUse">
+        <linearGradient id="mg-check" x1="18" y1="82" x2="74" y2="10" gradientUnits="userSpaceOnUse">
           <stop stopColor="#F26B1F" />
           <stop offset="0.5" stopColor="#F5871F" />
           <stop offset="1" stopColor="#FBB540" />
         </linearGradient>
       </defs>
-      {/* solid filled checkmark: short left arm, tall right arm, pointed base */}
-      <path d="M6 44 L26 37 L43 58 L74 12 L92 22 L36 90 Z" fill="url(#mg-check)" />
+      {/* Mango mark: bold upright checkmark — short lower-left arm, tall steep right arm */}
+      <polyline
+        points="14,38 32,78 72,10"
+        fill="none"
+        stroke="url(#mg-check)"
+        strokeWidth="18"
+        strokeLinejoin="miter"
+        strokeLinecap="butt"
+      />
     </svg>
   )
 }
