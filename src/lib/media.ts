@@ -14,4 +14,8 @@ export const MEDIA = {
   mechanic: `${CDN}/hf_20260629_184531_58de4d7e-0e07-40a7-9f79-e0646561e32a.png`,
   keys: `${CDN}/hf_20260629_184537_ad5b7b4f-1b5f-4146-b449-0f48733c047a.png`,
   garage: `${CDN}/hf_20260629_184540_b6adecac-8f99-43d3-8705-6f58010199ba.png`,
+  // "How it works" — everyday owner with her own car + phone, Lithuanian street.
+  // Background-edited from the chosen take; fresh alternative:
+  // hf_20260630_073614_82ccee49-9d7c-4474-ad6e-0a72ea008d69.png
+  howItWorks: `${CDN}/hf_20260630_073610_26c034a6-bb2e-485f-948b-f903ed04265a.png`,
 } as const

@@ -30,8 +30,8 @@ export default function HowItWorks() {
         <Reveal className="order-last lg:order-first">
           <div className="relative">
             <Photo
-              src={MEDIA.keys}
-              alt="A happy Mango customer collecting their car keys"
+              src={MEDIA.howItWorks}
+              alt="A driver getting their car covered online in minutes"
               ratio="aspect-[4/3]"
               className="rounded-4xl shadow-lift"
             />
