@@ -12,18 +12,19 @@ export default function FinalCTA({ onGetPrice }: { onGetPrice: (plate?: string) 
     <section className="container-pad py-12 sm:py-16">
       <Reveal>
         <div className="relative isolate overflow-hidden rounded-[2.5rem] px-7 py-14 text-center shadow-lift sm:px-12 sm:py-20">
-          {/* photo + branded scrim */}
+          {/* photo + layered scrim: dark base for legibility, then brand wash */}
           <div className="absolute inset-0 -z-10">
             <Photo src={MEDIA.heroPoster} alt="" fill fallback="navy" />
           </div>
-          <div className="absolute inset-0 -z-10 bg-gradient-to-br from-mango-600/92 via-mango-700/85 to-navy-900/90" />
+          <div className="absolute inset-0 -z-10 bg-ink-900/55" />
+          <div className="absolute inset-0 -z-10 bg-gradient-to-br from-mango-600/85 to-navy-900/85" />
 
-          <div className="relative mx-auto max-w-xl">
+          <div className="relative mx-auto max-w-xl [text-shadow:0_2px_18px_rgba(0,0,0,0.45)]">
             <h2 className="font-display text-balance text-3xl font-extrabold leading-[1.08] tracking-[-0.02em] text-white sm:text-[2.7rem]">
               The next breakdown isn&apos;t a question of{' '}
-              <em className="not-italic underline decoration-white/40 underline-offset-4">if</em> — it&apos;s when.
+              <em className="not-italic underline decoration-white/60 underline-offset-4">if</em> — it&apos;s when.
             </h2>
-            <p className="mx-auto mt-4 max-w-md text-[16px] leading-relaxed text-white/90">
+            <p className="mx-auto mt-4 max-w-md text-[16px] font-medium leading-relaxed text-white">
               Lock in today&apos;s price before your factory warranty runs out. It takes two minutes.
             </p>
 

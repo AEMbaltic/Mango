@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 48">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
   <defs>
-    <linearGradient id="c" x1="2" y1="46" x2="42" y2="4" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#F26B1F"/><stop offset="0.55" stop-color="#F5871F"/><stop offset="1" stop-color="#FBB540"/>
+    <linearGradient id="c" x1="6" y1="90" x2="92" y2="12" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F26B1F"/><stop offset="0.5" stop-color="#F5871F"/><stop offset="1" stop-color="#FBB540"/>
     </linearGradient>
   </defs>
-  <polyline points="4,21 18,44 40,4" fill="none" stroke="url(#c)" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M6 44 L26 37 L43 58 L74 12 L92 22 L36 90 Z" fill="url(#c)"/>
 </svg>

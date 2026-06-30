@@ -7,37 +7,26 @@ interface LogoProps {
   className?: string
 }
 
-/** The Mango Insurance mark: an amber→orange checkmark. */
+/** The Mango Insurance mark: a bold, solid amber→orange checkmark. */
 export function MangoMark({ size = 34 }: { size?: number }) {
   return (
-    <svg
-      width={(size * 44) / 48}
-      height={size}
-      viewBox="0 0 44 48"
-      fill="none"
-      aria-hidden="true"
-    >
+    <svg width={size} height={size} viewBox="0 0 100 100" fill="none" aria-hidden="true">
       <defs>
-        <linearGradient id="mg-check" x1="2" y1="46" x2="42" y2="4" gradientUnits="userSpaceOnUse">
+        <linearGradient id="mg-check" x1="6" y1="90" x2="92" y2="12" gradientUnits="userSpaceOnUse">
           <stop stopColor="#F26B1F" />
-          <stop offset="0.55" stopColor="#F5871F" />
+          <stop offset="0.5" stopColor="#F5871F" />
           <stop offset="1" stopColor="#FBB540" />
         </linearGradient>
       </defs>
-      <polyline
-        points="4,21 18,44 40,4"
-        stroke="url(#mg-check)"
-        strokeWidth="11"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
+      {/* solid filled checkmark: short left arm, tall right arm, pointed base */}
+      <path d="M6 44 L26 37 L43 58 L74 12 L92 22 L36 90 Z" fill="url(#mg-check)" />
     </svg>
   )
 }
 
 export default function Logo({ size = 34, withWordmark = true, dark = false, className = '' }: LogoProps) {
   return (
-    <span className={`inline-flex items-center gap-2.5 ${className}`}>
+    <span className={`inline-flex items-center gap-2 ${className}`}>
       <MangoMark size={size} />
       {withWordmark && (
         <span className="flex flex-col leading-none">
